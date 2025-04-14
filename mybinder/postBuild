@@ -1,5 +1,5 @@
 #!/bin/bash
-#!/usr/bin/env bash
+conda activate
 
 # Clone MAIA without initializing submodules
 git clone https://github.com/onera/Maia.git
@@ -56,6 +56,8 @@ make -j$(nproc)
 
 # Install
 make install
+
+conda list numpy
 
 # Add to PYTHONPATH for notebook access
 echo "export PYTHONPATH=\$PYTHONPATH:$(pwd)/../Dist/lib" >> /home/jovyan/.bashrc
