@@ -2,7 +2,7 @@
 conda activate
 
 # Clone MAIA without initializing submodules
-git clone https://github.com/onera/Maia.git
+git clone git@github.com:amehri-upvd/Maia.git
 
 cd Maia
 
