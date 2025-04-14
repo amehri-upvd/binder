@@ -7,7 +7,18 @@ git clone https://github.com/onera/Maia.git
 cd Maia
 
 # Initialize direct submodules only, avoiding recursive initialization
-git submodule update --init
+git submodule update --init 2>&1 || { echo "Erreur lors de l'initialisation des sous-modules" >&2; exit 1; }
+
+if ! command -v python &> /dev/null; then
+  echo "Python n'est pas installé ou n'est pas dans le PATH." >&2
+  exit 1
+fi
+
+if ! python -c "import numpy"; then
+  echo "NumPy n'est pas installé." >&2
+  exit 1
+fi
+
 
 # Proceed with build
 mkdir -p build
