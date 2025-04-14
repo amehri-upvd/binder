@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#!/usr/bin/env bash
 
 # Clone MAIA without initializing submodules
 git clone https://github.com/onera/Maia.git
@@ -16,6 +16,12 @@ fi
 
 if ! python -c "import numpy"; then
   echo "NumPy n'est pas installé." >&2
+  exit 1
+fi
+
+
+if ! command -v mpirun &> /dev/null; then
+  echo "MPI n'est pas installé correctement" >&2
   exit 1
 fi
 
