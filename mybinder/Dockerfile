@@ -16,5 +16,12 @@ COPY postBuild /tmp/
 RUN chmod +x /tmp/postBuild && \
     /tmp/postBuild
 
+
+# Vérification finale
+RUN echo "Vérification de l'installation :" && \
+    python -c "import maia; print(f'Maia version: {maia.__version__}')" && \
+    mpirun --version && \
+    echo "Build réussi !"
+
 USER ${NB_UID}
 
