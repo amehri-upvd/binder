@@ -44,5 +44,8 @@ cmake -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX \
 # Compile 
 make -j$(nproc) 
 
+make install
+echo "Suceesful maia installation"
+
 # Configure PYTHONPATH
 echo "export PYTHONPATH=$CONDA_PREFIX/lib:$PYTHONPATH" >> /home/jovyan/.bashrc
